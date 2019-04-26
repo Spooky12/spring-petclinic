@@ -13,3 +13,8 @@ script:
   # other script steps might be done before running the actual analysis
   - sonar-scanner
   - docker build -t petclinic:$TRAVIS_BUILD_NUMBER .
+  - curl https://cli-assets.heroku.com/install.sh | sh
+  - heroku --version
+  - heroku container:login
+  - heroku container:push web --app tetay-petclinic
+  - heroku container:release web --app tetay-petclinic

@@ -4,6 +4,10 @@ before_install:
   - echo $TRAVIS_JDK_VERSION
   - echo $TRAVIS_COMMIT
   - echo $TRAVIS_REPO_SLUG
+addons:
+  sonarcloud:
+    organization: "spooky12-github" # the key of the org you chose at step #3
 script:
   # other script steps might be done before running the actual analysis
   - sonar-scanner
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar

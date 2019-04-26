@@ -1,2 +1,6 @@
 language: java
 jdk: oraclejdk8
+before_install:
+  - echo $TRAVIS_JDK_VERSION
+  - echo $TRAVIS_COMMIT
+  - echo $TRAVIS_REPO_SLUG
